@@ -9,7 +9,6 @@ const client = redis.createClient({
   client.connect().catch(console.error)
 // client.connect();
 
-
 const setJWT = (key, value) => {
   return new Promise((resolve, reject) => {
     try {
