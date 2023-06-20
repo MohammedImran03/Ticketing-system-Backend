@@ -1,0 +1,95 @@
+### user Sing up endpoint
+POST http://localhost:9000/users/newuser
+Content-Type: application/json
+
+{
+        "firstname":"student",
+        "lastname":"MERN",
+        "email":"mohammedimran1407.mi@gmail.com",
+        "password":"student12345",
+        "mobile":9025252525,
+        "role":"student",
+        "isActive":false
+}
+### user Sing in endpoint
+POST http://localhost:9000/users/login
+Content-Type: application/json
+
+{
+    "email":"mohammedimran1407.mi@gmail.com",
+    "password":"student12345"
+}
+
+### Get a user Profile endpoint
+GET  http://localhost:9000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+### Get refreshed token 
+GET  http://localhost:9000/tokens/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjM3NzEyLCJleHAiOjE2ODc0MTA1MTJ9.yLxxmlo1crPOh00HnTgCEyZ3yUhVJWGXiYv64j52Jik
+
+
+### Password-Reset Endpoits
+
+POST http://localhost:9000/users/reset-password
+Content-Type: application/json
+
+{
+    "email":"mohammedimran1407.mi@gmail.com"
+}
+
+### UPDATE New password  Endpoits
+PATCH  http://localhost:9000/users/reset-password
+Content-Type: application/json
+{
+    "email":"mohammedimran1407.mi@gmail.com",
+    "pin":"060445",
+    "newPassword":"12345"
+}
+### User Sign out Endpoint
+DELETE  http://localhost:9000/users/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+###Ticket API
+
+### Add new ticket 
+POST http://localhost:9000/tickets/addnewticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+Content-Type: application/json
+
+{
+          "category":"Zen-Class Doubt",
+          "subCategory":"Web Code",
+          "tags":"123",
+          "preferredLanguage":"Tamil",
+          "title":"example",
+          "description":"example",
+         "availableTimefrom":"nil",
+          "availableTimetill":"nil"
+}
+
+### get users tickets
+GET http://localhost:9000/tickets/usertickets
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+###get users specific tickets
+GET http://localhost:9000/tickets/gettickets/64914febc0c7c4fcd555fc40
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+###Close Tickets
+PATCH http://localhost:9000/tickets/close-ticket/64914febc0c7c4fcd555fc40
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+### change ticket status
+PUT http://localhost:9000/tickets/assign-ticket/6491420452d48e0c39918618
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+
+###Update message in ticket
+PUT http://localhost:9000/tickets/reply-ticket/64914febc0c7c4fcd555fc40
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtbWVkaW1yYW4ubWlAZ21haWwuY29tIiwiaWF0IjoxNjg3MjQyNzc5LCJleHAiOjE2ODcyNDM2Nzl9.exqpd1_OvGJ09S6vstfdYYkfMe77n16AiOQhdKpX0k4
+Content-Type: application/json
+{ 
+"message":"hi,",
+ "sender":"student"
+  }
+
