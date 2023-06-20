@@ -33,11 +33,6 @@ const deletePin = (email, pin) => {
       .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
-  //   try {
-  //     ResetPinSchema.findOneAndDelete({ email, pin });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
 };
 
 module.exports = {

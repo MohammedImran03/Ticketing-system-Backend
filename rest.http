@@ -12,7 +12,7 @@ Content-Type: application/json
         "isActive":false
 }
 ### user Sing in endpoint
-POST https://query-tickecting-system.onrender.com/users/login
+POST http://localhost:9000/users/login
 Content-Type: application/json
 
 {
@@ -21,8 +21,8 @@ Content-Type: application/json
 }
 
 ### Get a user Profile endpoint
-GET  https://query-tickecting-system.onrender.com/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+GET  http://localhost:9000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NjI1OSwiZXhwIjoxNjg3Mjc3MTU5fQ.sHB3d8ocwrXmeOwfI-2a2oGu7If2jHANdcFwxQAoQ3Y
 
 ### Get refreshed token 
 GET  http://localhost:9000/tokens/
@@ -48,48 +48,48 @@ Content-Type: application/json
 }
 ### User Sign out Endpoint
 DELETE  http://localhost:9000/users/logout
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NTMyNCwiZXhwIjoxNjg3Mjc2MjI0fQ.3dc8rxHc9UGMjJZ9pw1rb7itcScmSPgqMEHq67Ay5ig
 
 ###Ticket API
 
 ### Add new ticket 
 POST http://localhost:9000/tickets/addnewticket
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 Content-Type: application/json
 
 {
           "category":"Zen-Class Doubt",
-          "subCategory":"Web Code",
-          "tags":"123",
+          "subCategory":"Code Kata",
+          "tags":"node js",
           "preferredLanguage":"Tamil",
-          "title":"example",
-          "description":"example",
+          "title":"exampleexampleexample",
+          "description":"exampleexampleexample",
          "availableTimefrom":"nil",
           "availableTimetill":"nil"
 }
 
 ### get users tickets
 GET http://localhost:9000/tickets/usertickets
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 
 ###get users specific tickets
-GET http://localhost:9000/tickets/gettickets/64914febc0c7c4fcd555fc40
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+GET http://localhost:9000/tickets/gettickets/64918b794dc2f67567b52832
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 
 ###Close Tickets
-PATCH http://localhost:9000/tickets/close-ticket/64914febc0c7c4fcd555fc40
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+PATCH http://localhost:9000/tickets/close-ticket/64918b794dc2f67567b52832
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 
 ### change ticket status
-PUT http://localhost:9000/tickets/assign-ticket/6491420452d48e0c39918618
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+PUT http://localhost:9000/tickets/assign-ticket/64918b794dc2f67567b52832
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 
 ###Update message in ticket
-PUT http://localhost:9000/tickets/reply-ticket/64914febc0c7c4fcd555fc40
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI2OTE2NiwiZXhwIjoxNjg3MjcwMDY2fQ.CGxgZwoep8dY4X_1gAbV-OpsWO2BYIUxQvAl4ualSxs
+PUT http://localhost:9000/tickets/reply-ticket/64918b794dc2f67567b52832
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
 Content-Type: application/json
-{ 
-"message":"hi,",
- "sender":"student"
-  }
+       { 
+    "message":"hi,hihi",
+     "sender":"student"
+    }
 

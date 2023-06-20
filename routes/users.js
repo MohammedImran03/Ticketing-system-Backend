@@ -26,7 +26,7 @@ const {
   resetPassReqValidation,
   updatePassValidation,
 } = require("../middlewares/formValidation");
-const {deleteJWT}=require("../services/redis.helper");
+const {deletetokenJWT}=require("../model/refreshjwt/refresh.model");
 const { isValidObjectId } = require("mongoose");
 
 //routes checking
@@ -220,7 +220,7 @@ userrouter.delete("/logout", userAuthorization, async (req, res) => {
 	//this data coming form database
 	const _id = req.userId;
 	// 2. delete accessJWT from redis database
-	deleteJWT(authorization);
+	deletetokenJWT(authorization);
 	// 3. delete refreshJWT from mongodb
 	const result = await storeUserRefreshJWT(_id, "");
 	if (result._id) {
