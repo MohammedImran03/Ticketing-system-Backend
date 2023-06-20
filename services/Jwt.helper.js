@@ -7,7 +7,7 @@ const ceateAccessJWT = async (email, _id) => {
     const accessJWT = jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, {
       expiresIn: "15m",
     });
-    await setJWT(accessJWT, _id);
+    // await setJWT(accessJWT, _id);
     return Promise.resolve(accessJWT);
   } catch (error) {
     return Promise.reject(error);

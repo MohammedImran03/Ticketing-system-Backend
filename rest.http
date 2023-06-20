@@ -1,23 +1,23 @@
 ### user Sing up endpoint
-POST http://localhost:9000/users/newuser
+POST https://query-tickecting-system.onrender.com/users/newuser
 Content-Type: application/json
 
 {
         "firstname":"student",
         "lastname":"MERN",
-        "email":"mohammedimran1407.mi@gmail.com",
+        "email":"mohammed.mi@gmail.com",
         "password":"student12345",
         "mobile":9025252525,
         "role":"student",
         "isActive":false
 }
 ### user Sing in endpoint
-POST http://localhost:9000/users/login
+POST https://query-tickecting-system.onrender.com/users/login
 Content-Type: application/json
 
 {
-    "email":"mohammedimran1407.mi@gmail.com",
-    "password":"student12345"
+   "email":"Mern.mentor@gmail.com",
+    "password":"student123"
 }
 
 ### Get a user Profile endpoint
