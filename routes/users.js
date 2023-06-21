@@ -98,12 +98,14 @@ userrouter.post("/newuser", async function (req, res, next) {
     console.log(result);
     if (result?._id) {
       return res.status(200).json({
+        status: "success",
         success: true,
         message: "User Created Successfully!!!",
         data: result,
       });
     } else {
       return res.status(500).json({
+        status: "error",
         success: false,
         message: "User Creation failed!!!",
       });
@@ -111,6 +113,7 @@ userrouter.post("/newuser", async function (req, res, next) {
   } catch (error) {
     console.log(error);
     return res.status(400).json({
+      status: "error",
       success: false,
       message: "Bad request!!!",
       error: error.message,
@@ -132,18 +135,19 @@ userrouter.post("/login", async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .send({ success: false, message: "Account doesnot exists!!!!" });
+        .send({ status: "error", message: "Account doesnot exists!!!!" });
     }
     const storedDbPassword = user.password;
     const isPasswordMatch = await bcrypt.compare(password, storedDbPassword);
     if (!isPasswordMatch) {
       return res
         .status(400)
-        .send({ message: "Password Doesn't Match, Login Failed!!!!" });
+        .send({status: "error", message: "Password Doesn't Match, Login Failed!!!!" });
     }
     const accessJWT = await ceateAccessJWT(user.email, `${user._id}`);
     const RefreshJWT = await ceateRefreahJWT(user.email, `${user._id}`);
     res.send({
+      status: "success",
       message: "Logged In Successfull",
       data: user,
       accessJWT,
