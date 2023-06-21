@@ -39,10 +39,13 @@ const { isValidObjectId } = require("mongoose");
 // Get user profile
 userrouter.get("/", userAuthorization, async (req, res, next) => {
   //this data coming form database
-  const _id = req.userId;
+  var _id = req.userId;
   const userProfile = await getUserById(_id);
-  // const { name, email } = userProf;
-  res.json({ user: userProfile });
+  const {_id, firstname,lastname,email,mobile,role} = userProfile;
+  res.json({status: "success",
+  success: true,
+   user:{_id,firstname,lastname,email,mobile,role},
+  });
 });
 
 //get all users

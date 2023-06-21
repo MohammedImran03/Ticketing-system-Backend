@@ -5,7 +5,7 @@ Content-Type: application/json
 {
         "firstname":"student",
         "lastname":"MERN",
-        "email":"MERNmentor@gmail.com",
+        "email":"MERNmentor2@gmail.com",
         "password":"mentor12345",
         "mobile":9025252525,
         "role":"mentor",
