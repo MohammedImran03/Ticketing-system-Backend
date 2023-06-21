@@ -73,14 +73,14 @@ userrouter.post("/newuser", async function (req, res, next) {
   const isUserExist = await isEmailexist(email);
   // console.log(isUserExist._id);
   if (isUserExist) {
-    res.status(404).send({
-      status: "failed",
+    res.json({
+      status: "error",
       message: "Email id already Exist cannot sign in with the same Email id",
     });
     return;
   }
   if (!/^(?=.*?[0-9])(?=.*?[a-z]).{8,}$/g.test(password)) {
-    res.status(400).send({ message: "Password pattern doesn't match" });
+    res.json({status: "error", message: "Password pattern doesn't match" });
     return;
   }
   try {
@@ -97,14 +97,14 @@ userrouter.post("/newuser", async function (req, res, next) {
     const result = await insertUser(newUserObj);
     console.log(result);
     if (result?._id) {
-      return res.status(200).json({
+      return res.json({
         status: "success",
         success: true,
         message: "User Created Successfully!!!",
         data: result,
       });
     } else {
-      return res.status(500).json({
+      return res.json({
         status: "error",
         success: false,
         message: "User Creation failed!!!",
@@ -112,7 +112,7 @@ userrouter.post("/newuser", async function (req, res, next) {
     }
   } catch (error) {
     console.log(error);
-    return res.status(400).json({
+    return res.json({
       status: "error",
       success: false,
       message: "Bad request!!!",
@@ -126,27 +126,21 @@ userrouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!email || !password) {
-      return res
-        .status(400)
-        .send({ success: false, message: "Invalid Form Submission" });
+      return res.json({status: "error", success: false, message: "Invalid Form Submission" });
     }
     const user = await getUserByEmail(email);
     // console.log(user);
     if (!user) {
-      return res
-        .status(400)
-        .send({ status: "error", message: "Account doesnot exists!!!!" });
+      return res.json({ status: "error", message: "Account doesnot exists!!!!" });
     }
     const storedDbPassword = user.password;
     const isPasswordMatch = await bcrypt.compare(password, storedDbPassword);
     if (!isPasswordMatch) {
-      return res
-        .status(400)
-        .send({status: "error", message: "Password Doesn't Match, Login Failed!!!!" });
+      return res.json({status: "error", message: "Password Doesn't Match, Login Failed!!!!" });
     }
     const accessJWT = await ceateAccessJWT(user.email, `${user._id}`);
     const RefreshJWT = await ceateRefreahJWT(user.email, `${user._id}`);
-    res.send({
+    res.json({
       status: "success",
       message: "Logged In Successfull",
       data: user,
@@ -154,7 +148,8 @@ userrouter.post("/login", async (req, res) => {
       RefreshJWT,
     });
   } catch (error) {
-    return res.status(400).json({
+    return res.json({
+      status:"error",
       success: false,
       message: "Login Credentials missing",
       error: error.message,
@@ -182,7 +177,7 @@ userrouter.post("/reset-password", resetPassReqValidation, async (req, res) => {
     });
   }
   res.json({
-    status: "Failure",
+    status: "error",
     message:
       "If the email id exist, the password reset pin will be sent to your Email id.",
   });
