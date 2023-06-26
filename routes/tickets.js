@@ -9,6 +9,7 @@ const {
   updatetoassigned,
   getallTickets,
   getTicketsformentor,
+  getmentorTicketById,
 } = require("../model/tickets/tickets.model");
 const {
   userAuthorization,
@@ -94,7 +95,7 @@ ticketrouter.get("/usertickets", userAuthorization, async (req, res) => {
 });
 
 
-//Get mentors all tickets
+//Get tickets for specific mentors 
 ticketrouter.get("/mentortickets", userAuthorization, async (req, res) => {
   try {
     const userId = req.userId;
@@ -109,7 +110,7 @@ ticketrouter.get("/mentortickets", userAuthorization, async (req, res) => {
 });
 
 
-// Get all users for a specific tickets
+// Get users specific tickets
 ticketrouter.get("/gettickets/:_id", userAuthorization, async (req, res) => {
   try {
     const { _id } = req.params;
@@ -124,6 +125,20 @@ ticketrouter.get("/gettickets/:_id", userAuthorization, async (req, res) => {
   }
 });
 
+// Get mentor specific tickets
+ticketrouter.get("/getmentortickets/:_id", userAuthorization, async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const  assignedTo= req.userId;
+    const result = await getmentorTicketById(_id, assignedTo);
+    return res.json({
+      status: "success",
+      result,
+    });
+  } catch (error) {
+    res.json({ status: "error", message: error.message });
+  }
+});
 
 // update ticket to assign to client
 ticketrouter.put("/assign-ticket/:_id", userAuthorization, async (req, res) => {
@@ -176,9 +191,7 @@ ticketrouter.patch("/close-ticket/:_id", userAuthorization, async (req, res) => 
   try {
     const { _id } = req.params;
     const rasiedBy = req.userId;
-
     const result = await updateStatusClose({ _id, rasiedBy });
-
     if (result._id) {
       return res.json({
         status: "success",

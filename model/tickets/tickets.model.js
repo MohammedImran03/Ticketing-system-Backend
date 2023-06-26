@@ -63,6 +63,19 @@ const getTicketsformentor = (assignedTo) => {
     });
   };
 
+  
+  const getmentorTicketById=(_id, assignedTo) => {
+    return new Promise((resolve, reject) => {
+      try {
+        TicketSchema.find({ _id, assignedTo })
+          .then((data) => resolve(data))
+          .catch((error) => reject(error));
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
   const updatetoassigned = ({ _id, assignedtoid,firstname}) => {
     return new Promise((resolve, reject) => {
       try {
@@ -131,5 +144,6 @@ const getTicketsformentor = (assignedTo) => {
     updateStatusClose,
     updatetoassigned,
     getallTickets,
-    getTicketsformentor
+    getTicketsformentor,
+    getmentorTicketById
   }
