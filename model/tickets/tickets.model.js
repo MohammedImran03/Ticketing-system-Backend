@@ -38,6 +38,19 @@ const insertTicket = (ticketObj) => {
     });
   };
 
+
+const getTicketsformentor = (assignedTo) => {
+    return new Promise((resolve, reject) => {
+      try {
+        TicketSchema.find({ assignedTo })
+          .then((data) => resolve(data))
+          .catch((error) => reject(error));
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
   const getTicketById = (_id, rasiedBy) => {
     return new Promise((resolve, reject) => {
       try {
@@ -117,5 +130,6 @@ const insertTicket = (ticketObj) => {
     updateClientReply,
     updateStatusClose,
     updatetoassigned,
-    getallTickets
+    getallTickets,
+    getTicketsformentor
   }

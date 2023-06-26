@@ -7,7 +7,8 @@ const {
   updateClientReply,
   updateStatusClose,
   updatetoassigned,
-  getallTickets
+  getallTickets,
+  getTicketsformentor,
 } = require("../model/tickets/tickets.model");
 const {
   userAuthorization,
@@ -91,6 +92,22 @@ ticketrouter.get("/usertickets", userAuthorization, async (req, res) => {
     res.json({ status: "error", message: error.message });
   }
 });
+
+
+//Get mentors all tickets
+ticketrouter.get("/mentortickets", userAuthorization, async (req, res) => {
+  try {
+    const userId = req.userId;
+    const result = await getTicketsformentor(userId);
+    return res.json({
+      status: "success",
+      result,
+    });
+  } catch (error) {
+    res.json({ status: "error", message: error.message });
+  }
+});
+
 
 // Get all users for a specific tickets
 ticketrouter.get("/gettickets/:_id", userAuthorization, async (req, res) => {
