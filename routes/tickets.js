@@ -13,6 +13,8 @@ const {
   userAuthorization,
 } = require("../middlewares/authorization.middleware");
 const {createNewTicketValidation}=require("../middlewares/formValidation");
+const {getUserById} = require("../model/user/users.model");
+
 ticketrouter.all("/", (req, res, next) => {
   // res.json({ message: "return form ticket router" });
 
@@ -111,7 +113,9 @@ ticketrouter.put("/assign-ticket/:_id", userAuthorization, async (req, res) => {
   try {
     const { _id } = req.params;
     const assignedtoid = req.userId;
-    const result = await updatetoassigned({ _id, assignedtoid});
+    const userProfile = await getUserById(assignedtoid);
+    const {firstname} = userProfile;
+    const result = await updatetoassigned({ _id, assignedtoid,firstname});
     if (result._id) {
       return res.json({
         status: "success",

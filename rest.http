@@ -14,18 +14,18 @@ Content-Type: application/json
 ### user Sing in endpoint
 POST https://query-tickecting-system.onrender.com/users/login
 Content-Type: application/json
-  {
+    {
 
-     "email":"MERNmentor@gmail.com",
-     "password":"mentor12345"
+     "email":"Mern.mentor@gmail.com",
+     "password":"11111"
 
     }
 ### Get a user Profile endpoint
 GET  https://query-tickecting-system.onrender.com/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1FUk5tZW50b3JAZ21haWwuY29tIiwiaWF0IjoxNjg3MzQxOTg1LCJleHAiOjE2ODc1MTQ3ODV9.0obE09NjsmpdHU2qcuvaBZ99VgwudAukbeJNt2V7pmQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1FUk5tZW50b3JAZ21haWwuY29tIiwiaWF0IjoxNjg3NDk0MzE4LCJleHAiOjE2ODc0OTUyMTh9._5eEemvZvRsWZpuWx2j7W9kj5e1_kq2N9f523CVp44o
 
 ### Get refreshed token 
-GET  https://query-tickecting-system.onrender.com/tokens/
+GET  https://query-tickecting-system.onrender.com/tokens
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1FUk5tZW50b3JAZ21haWwuY29tIiwiaWF0IjoxNjg3MzQxOTg1LCJleHAiOjE2ODc1MTQ3ODV9.0obE09NjsmpdHU2qcuvaBZ99VgwudAukbeJNt2V7pmQ
 
 
@@ -43,8 +43,8 @@ PATCH  https://query-tickecting-system.onrender.com/users/reset-password
 Content-Type: application/json
 {
     "email":"Mern.mentor@gmail.com",
-    "pin":"422945",
-    "newPassword":"12345"
+    "pin":"950842",
+    "newPassword":"mern12345"
 }
 ### User Sign out Endpoint
 DELETE  https://query-tickecting-system.onrender.com/users/logout
@@ -54,7 +54,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9y
 
 ### Add new ticket 
 POST https://query-tickecting-system.onrender.com/tickets/addnewticket
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzQ0OTM4OCwiZXhwIjoxNjg3NDUwMjg4fQ.ecDK6lKiAHUJseBgxRiEo9109afcy-eXIn91pFMfKVY
 Content-Type: application/json
 
 {
@@ -70,7 +70,7 @@ Content-Type: application/json
 
 ### get users tickets
 GET https://query-tickecting-system.onrender.com/tickets/usertickets
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lcm4ubWVudG9yQGdtYWlsLmNvbSIsImlhdCI6MTY4NzI3NzUxNSwiZXhwIjoxNjg3Mjc4NDE1fQ.IpaUFDzvUOAXuL54YoY7Z7EiyMDCsn22X8zFmo4MWfI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1FUk5tZW50b3JAZ21haWwuY29tIiwiaWF0IjoxNjg3NDIzMDQyLCJleHAiOjE2ODc0MjM5NDJ9.IiEOv1y7lAAElGp81Zc4N_6Zd3fJpfeYjCygo8wwpIc
 
 ###get users specific tickets
 GET https://query-tickecting-system.onrender.com/tickets/gettickets/64918b794dc2f67567b52832

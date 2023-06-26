@@ -50,14 +50,15 @@ const insertTicket = (ticketObj) => {
     });
   };
 
-  const updatetoassigned = ({ _id, assignedtoid}) => {
+  const updatetoassigned = ({ _id, assignedtoid,firstname}) => {
     return new Promise((resolve, reject) => {
       try {
         TicketSchema.findOneAndUpdate(
           { _id },
           {
             status: "ASSIGNED",
-            assignedTo:assignedtoid
+            assignedTo:assignedtoid,
+            assignedmentorname:firstname
           },
           { new: true }
         )
