@@ -172,9 +172,12 @@ ticketrouter.put("/assign-ticket/:_id", userAuthorization, async (req, res) => {
 ticketrouter.put("/reply-ticket/:_id", userAuthorization, async (req, res) => {
   try {
     const { _id } = req.params;
-    // const rasiedBy = req.userId;
+    const senderid = req.userId;
+    // const userProfile = await getUserById(senderid);
+    // const {role} = userProfile;
     const { message, sender,file,msgAt} = req.body;
-    const result = await updateClientReply({ _id, message, sender,file,msgAt});
+    const reqobj={ _id, message, sender:senderid,file,msgAt}
+    const result = await updateClientReply(reqobj);
     if (result._id) {
       return res.json({
         status: "success",

@@ -68,9 +68,8 @@ const TicketSchema = new Schema(
     conversations: [
       {
         sender: {
-          type: String,
-          maxlength: 50,
-          default: "",
+          type: Schema.Types.ObjectId,
+          default:"",
         },
         file: {
           type: String,
