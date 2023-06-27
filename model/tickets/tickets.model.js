@@ -118,13 +118,13 @@ const getTicketsformentor = (assignedTo) => {
     });
   };
 
-  const updateStatusClose = ({ _id, rasiedBy }) => {
+  const updateStatusClose = ({ _id, rasiedBy,solution,rating }) => {
     return new Promise((resolve, reject) => {
       try {
         TicketSchema.findOneAndUpdate(
-          { _id, rasiedBy },
+          { _id, rasiedBy},
           {
-            status: "CLOSED",
+            status: "CLOSED",solution,rating 
           },
           { new: true }
         )

@@ -198,7 +198,8 @@ ticketrouter.patch("/close-ticket/:_id", userAuthorization, async (req, res) => 
   try {
     const { _id } = req.params;
     const rasiedBy = req.userId;
-    const result = await updateStatusClose({ _id, rasiedBy });
+    const {solution,rating}=req.body;
+    const result = await updateStatusClose({ _id, rasiedBy,solution,rating });
     if (result._id) {
       return res.json({
         status: "success",
@@ -210,6 +211,7 @@ ticketrouter.patch("/close-ticket/:_id", userAuthorization, async (req, res) => 
       message: "Unable to update the ticket",
     });
   } catch (error) {
+    console.log(error);
     res.json({ status: "error", message: error.message });
   }
 });

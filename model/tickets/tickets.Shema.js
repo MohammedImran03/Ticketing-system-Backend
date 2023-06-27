@@ -102,9 +102,7 @@ const TicketSchema = new Schema(
       default: null,
     },
     rating: {
-      type: Number,
-      min: 0,
-      max: 5,
+      type: String,
       default: 0,
     },
     status: {
