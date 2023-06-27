@@ -69,7 +69,7 @@ const TicketSchema = new Schema(
       {
         sender: {
           type: Schema.Types.ObjectId,
-          default:"",
+          default:null,
         },
         file: {
           type: String,
