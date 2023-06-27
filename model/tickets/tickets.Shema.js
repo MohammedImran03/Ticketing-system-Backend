@@ -48,6 +48,15 @@ const TicketSchema = new Schema(
       type: Schema.Types.ObjectId,
       required: true,
   },
+  studentmobileno:{
+    type: String,
+    default: null,
+  },
+  email:{
+    type: String,
+    default: null,
+
+  },
   assignedTo: {
       type: Schema.Types.ObjectId,
       default:null,

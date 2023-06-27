@@ -5,11 +5,9 @@ Content-Type: application/json
 {
         "firstname":"student",
         "lastname":"MERN",
-        "email":"MERNmentor2@gmail.com",
+        "email":"MERNstudent@gmail.com",
         "password":"mentor12345",
-        "mobile":9025252525,
-        "role":"mentor",
-        "isActive":false
+        "mobile":9025252525
 }
 ### user Sing in endpoint
 POST https://query-tickecting-system.onrender.com/users/login

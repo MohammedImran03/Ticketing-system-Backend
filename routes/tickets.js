@@ -50,9 +50,12 @@ ticketrouter.post("/addnewticket", userAuthorization, async (req, res) => {
       availableTimefrom,
       availableTimetill,
       rasiedBy,
+      studentmobileno,
     } = req.body;
     // console.log(req.userId);
     const userId = req.userId;
+    const userProfile = await getUserById(userId);
+    const {email,mobile} = userProfile;
     const ticketObj = {
       category,
       subCategory,
@@ -63,6 +66,8 @@ ticketrouter.post("/addnewticket", userAuthorization, async (req, res) => {
       availableTimefrom,
       availableTimetill,
       rasiedBy: userId,
+      email,
+      studentmobileno: mobile,
     };
     const result = await insertTicket(ticketObj);
     if (result._id) {
